@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assignment 7 – President SCRUD App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 40px 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; color: #60a5fa; margin-bottom: 8px; }
+    h2 { font-size: 1.1rem; color: #93c5fd; margin: 28px 0 10px; }
+    p, li { font-size: 15px; line-height: 1.7; color: #cbd5e1; }
+    ul, ol { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    .badge {
+      display: inline-block;
+      background: #1e3a5f;
+      color: #93c5fd;
+      border: 1px solid #2563eb;
+      border-radius: 8px;
+      padding: 4px 12px;
+      font-size: 13px;
+      margin: 4px 4px 4px 0;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 12px;
+    }
+    .endpoint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #334155;
+      font-size: 14px;
+    }
+    .endpoint:last-child { border-bottom: none; }
+    .method {
+      font-weight: bold;
+      font-size: 12px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      min-width: 60px;
+      text-align: center;
+    }
+    .get    { background: #166534; color: #bbf7d0; }
+    .post   { background: #1e3a5f; color: #bfdbfe; }
+    .patch  { background: #713f12; color: #fde68a; }
+    .delete { background: #7f1d1d; color: #fecaca; }
+    code {
+      background: #0f172a;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 13px;
+      color: #7dd3fc;
+    }
+    footer { margin-top: 50px; color: #475569; font-size: 13px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>U.S. President SCRUD App</h1>
+    <p>Assignment 7 — Full stack application with a Streamlit frontend consuming a FastAPI + Supabase RESTful backend.</p>
+
+    <h2>What the app does</h2>
+    <div class="card">
+      <p>This is a full stack web application that lets users perform all five SCRUD operations on a database of U.S. Presidents. The Streamlit frontend communicates with a FastAPI backend deployed on Render, which connects to a Supabase PostgreSQL database.</p>
+    </div>
+
+    <h2>Tech stack</h2>
+    <div>
+      <span class="badge">Python</span>
+      <span class="badge">Streamlit</span>
+      <span class="badge">FastAPI</span>
+      <span class="badge">Supabase</span>
+      <span class="badge">RESTful API</span>
+      <span class="badge">Render</span>
+      <span class="badge">GitHub Pages</span>
+    </div>
+
+    <h2>SCRUD functions</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Search</strong> — Filter all presidents by first or last name in real time</li>
+        <li><strong>Create</strong> — Add a new president with first name, last name, and birthdate</li>
+        <li><strong>Retrieve</strong> — Fetch a specific president by their numeric ID</li>
+        <li><strong>Update</strong> — Edit a president's details by ID</li>
+        <li><strong>Delete</strong> — Remove a president record by ID</li>
+      </ul>
+    </div>
+
+    <h2>How the frontend consumes the backend</h2>
+    <div class="card">
+      <p>The Streamlit app uses Python's <code>requests</code> library to call the RESTful API endpoints hosted at <code>https://myapi1-pz44.onrender.com</code>. Each SCRUD operation maps to a specific HTTP method and endpoint:</p>
+      <br/>
+      <div class="endpoint">
+        <span class="method get">GET</span>
+        <code>/presidents</code>
+        <span style="color:#94a3b8">— Load all presidents (Search)</span>
+      </div>
+      <div class="endpoint">
+        <span class="method get">GET</span>
+        <code>/presidents/{id}</code>
+        <span style="color:#94a3b8">— Retrieve one president by ID</span>
+      </div>
+      <div class="endpoint">
+        <span class="method post">POST</span>
+        <code>/presidents</code>
+        <span style="color:#94a3b8">— Create a new president</span>
+      </div>
+      <div class="endpoint">
+        <span class="method patch">PATCH</span>
+        <code>/presidents/{id}</code>
+        <span style="color:#94a3b8">— Update a president's details</span>
+      </div>
+      <div class="endpoint">
+        <span class="method delete">DELETE</span>
+        <code>/presidents/{id}</code>
+        <span style="color:#94a3b8">— Delete a president</span>
+      </div>
+    </div>
+
+    <h2>How to run locally</h2>
+    <div class="card">
+      <ol>
+        <li>Clone the repo: <code>git clone https://github.com/salseidita80-cloud/Assignment7-FullStacks</code></li>
+        <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+        <li>Run the app: <code>streamlit run app.py</code></li>
+      </ol>
+    </div>
+
+    <footer>Assignment 7 &mdash; Full stack SCRUD</footer>
+  </div>
+</body>
+</html>
